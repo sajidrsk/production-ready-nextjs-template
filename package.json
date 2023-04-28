@@ -1,0 +1,57 @@
+{
+	"name": "production-ready-nextjs-template",
+	"version": "1.0.0",
+	"private": true,
+	"scripts": {
+		"tailwind:watch": "npx tailwindcss -i ./src/styles/globals.scss -o ./dist/main.css -w",
+		"tailwind:build": "npx tailwindcss -i ./src/styles/globals.scss -o ./dist/main.css",
+		"dev": "concurrently \"yarn tailwind:watch\" \"cross-env NODE_ENV=development next dev\"",
+		"build": "concurrently \"yarn tailwind:build\" \"cross-env NODE_ENV=production next build\"",
+		"start": "next start",
+		"lint": "next lint",
+		"format": "prettier --write \"*.{js,jsx,ts,tsx,json}\" --config ./.prettierrc.js",
+		"pre-commit": "lint-staged",
+		"prepare": "husky install",
+		"test": "jest",
+		"coverage": "jest --coverage"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged",
+			"pre-push": "yarn test"
+		}
+	},
+	"dependencies": {
+		"@reduxjs/toolkit": "1.9.3",
+		"@types/node": "18.15.1",
+		"@types/react": "18.0.28",
+		"@types/react-dom": "18.0.11",
+		"eslint-config-next": "13.2.4",
+		"i18next": "22.4.13",
+		"jsdom": "21.1.1",
+		"next": "13.2.4",
+		"next-i18next": "13.2.2",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"react-i18next": "12.2.0",
+		"react-redux": "8.0.5"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "17.4.4",
+		"@commitlint/config-conventional": "17.4.4",
+		"@testing-library/jest-dom": "5.16.5",
+		"@testing-library/react": "14.0.0",
+		"concurrently": "7.6.0",
+		"cross-env": "7.0.3",
+		"eslint": "8.36.0",
+		"eslint-config-prettier": "8.7.0",
+		"husky": "8.0.3",
+		"jest": "29.5.0",
+		"jest-environment-jsdom": "29.5.0",
+		"lint-staged": "13.2.0",
+		"prettier": "2.8.4",
+		"sass": "1.59.3",
+		"tailwindcss": "3.2.7",
+		"typescript": "4.9.5"
+	}
+}
