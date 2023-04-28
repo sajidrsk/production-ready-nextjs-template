@@ -5,6 +5,6 @@ describe("Home Page", () => {
 	it("tests if Home Page is render ", () => {
 		initI18n();
 		const { getByText } = render(<HomePage />);
-		expect(getByText("You are Welcome!")).toBeTruthy();
+		expect(getByText("Welcome and Start your project without worrying the configuration.")).toBeTruthy();
 	});
 });
